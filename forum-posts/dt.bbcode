@@ -1,0 +1,346 @@
+Hi fellow Deskthorian! Let me share my build log of my keyboard, dubbed Promethium51.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-xDdNdkW/5/dadba732/L/marketing-L.jpg[/img]
+
+Those are my design goals. Now I must say not everything is working perfectly for now.
+
+Trackpoint click doesn't work over Bluetooth yet. Bluetooth in general is working decently when connection is really good, i.e. when used on top of a laptop. But, if signal is weak, the keyboard might hang after a few keystrokes.
+
+I haven't verified battery indicator is working correctly.
+
+Trackpoint is usable but a little flaky when using interrupts. Using busywait appears to fix the problem which indicates problem with interrupt version of PS2 support in QMK, but using busywait introduces all sort of other problems. Using USART is not an option as the clock pin is not broken out by the Adafruit controller.
+
+Attachable palm rest is still under development.
+
+Opensourcing the design is not done yet, will do that after some cleanups. Firmware is already part of QMK.
+
+Warning: lots of pics follow.
+
+Part 1:
+
+[spoiler]
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-6ZqPtkx/0/69af70bc/L/NG2A5936-L.jpg[/img]
+
+This is the intended use case, to be used on top of laptops.
+
+Of course it can be used 'normally' too.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-K7DwSrg/4/3a31bc11/L/crosssection-L.jpg[/img]
+
+Cross-sectional diagram of some of the components. The sandwich layers from top to bottom:
+
+[list]
+[*] faceplate: acrylic mirror, 3mm
+[*] switch plate: aluminum plate, 1.5mm
+[*] middle case: acrylic, 5mm
+[*] middle plate: aluminum plate, 1.5mm
+[*] bottom case: acrylic, 3mm
+[*] bottom plate: aluminum plate, 1.5mm
+[/list]
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-M9CZFn5/0/00cca2f6/L/0001-L.jpg[/img]
+
+6 layer of plates from laser cutting shop. One acrylic mirror, 3 aluminum plates, and 2 black acrylic plates.
+
+Aluminum plates are going to be anodized for electrical insulation, as it will be really tight inside the keyboard.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-Q2c3RqH/0/6ac3b5a3/L/0002-L.jpg[/img]
+
+All applicable screw holes are countersunk like this one.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-gzwHSG3/0/dc2a0d04/L/NG2A5910-L.jpg[/img]
+
+Faceplate is an acrylic mirror sheet. Indicator legends are done by laser etching the reflective backing of the acrylic mirror, making the etched area transparent.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-4Rgzgsd/0/197fc15e/L/NG2A5915-L.jpg[/img]
+
+Reverse side of the etched acrylic mirror.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-gMPShM2/0/23825745/L/0006-L.jpg[/img]
+
+The Adafruit small White LED Backlight Module. Used here for logo lighting.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-s9MvGwV/0/cab7000a/L/0008-L.jpg[/img]
+
+The Adafruit Backlight Module seen from reverse side. It is covered in electrical tape to prevent light from bleeding to the underside, and also to keep it in place while I'm working.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-ks3k4B9/0/b3ddfd95/L/0004-L.jpg[/img]
+
+These switches will serve as Trackpoint buttons. Those are Zealio 78gs, same as with the rest of the keyboard.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-WhcSFLz/0/0e2467c4/L/0005-L.jpg[/img]
+
+Switch pins are bent because of the way I'm wiring. In my design there's only 5mm of clearance between switch plate and middle plate. With straight pins and without sacrificing features, the keyboard would need to be at least 2mm thicker.
+[/spoiler]
+
+Part 2
+
+[spoiler]
+[url=https://priyadi.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-DmPM9kb/A][img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-DmPM9kb/0/d9621ee8/L/0007-L.jpg[/img][/url]
+
+Trackpoint mounting screw holes. This should accommodate every Trackpoint module variations out there.
+
+Ugly countersinking job there. Probably will need to use drill press on overlapping holes for more consistent result.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-Bg3pL42/0/a87c7de8/L/0009-L.jpg[/img]
+
+The Adafruit Feather 32u4 Bluefruit LE is installed. Using plastic nuts here, but they will be replaced by steel ones later. I find plastic nuts too weak to withstand the force from plugging and unplugging the MicroUSB connector.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-3mLwgwH/0/80b54764/L/0010-L.jpg[/img]
+
+A latching switch button. These are surprisingly rare and hard to find  in this size. It is connected by a pair of magnet wire and routed to the bottom the plate using two holes I prepared before.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-gwr7QxT/0/b11edbc9/L/0011-L.jpg[/img]
+
+This is what it looks at the reverse side.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-4V5KwGn/0/d8a63a13/L/0012-L.jpg[/img]
+
+Trackpoint module is now installed, and covers the switch button holes, which is why I had to do the switch button first.
+
+The Trackpoint module is harvested from a used Thinkpad keyboard.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-dCHq2JZ/0/5db9ea12/L/0013-L.jpg[/img]
+
+Both the Adafruit controller and Trackpoint module are firmly attached to the plate using bolts.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-DXLJvwz/0/c5e393ee/L/3013-L.jpg[/img]
+
+My 31337 soldering skillz. This is the bottom of Trackpoint module. I connected each pin using 32AWG magnet wire. I'm using the same magnet wire almost everywhere else.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-tbSjQVG/1/b9f45a87/L/0014-L.jpg[/img]
+
+External circuitry for the Trackpoint module. They are basically an RC circuit for Trackpoint reset pin, and two pull up resistors for communication.
+
+These are put into a 3M foam double tape for preparation.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-qxz2Qkn/0/441af8fb/L/0015-L.jpg[/img]
+
+They are now placed on the plate. 3M foam double tape is awesome.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-N7SLBb7/0/6b8f2074/L/0017-L.jpg[/img]
+
+The Adafruit 32u4 works in 3.3V, but Trackpoint module and LED strip operate in 5V. So, we need these guys in red to convert voltages.
+
+The right one is the Sparkfun 5V Step-Up breakout board, this will convert 3.3V and make 5V available to us. The left one is the Sparkfun Logic Level Converter.
+
+The power lines are connected using thicker 26AWG magnet wire. I probably need to use thinner wires. 26AWG is too rigid that when something connected to it is loose, the wires would exert too much force on the solder connection points, making connection unreliable and harder to troubleshoot.
+[/spoiler]
+
+Part 3
+
+[spoiler]
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-q3svV4Z/0/26aa1b25/L/3001-L.jpg[/img]
+
+The Adafruit 32u4 BLE doesn't have enough pins for my needs. So, I'm using a HC138 3-to-8 decoder to free up 5 pins, but firmware will require custom matrix later.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-KRrnnHD/0/42a33445/L/3002-L.jpg[/img]
+
+Wiring the HC138 is done. I find it easier to wire it up before I stick it to the plate.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-HTJWp7W/0/98acd8cc/L/3003-L.jpg[/img]
+
+The decoder is now attached to the plate using the 3M foam double tape.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-MKRsQgr/0/77797e9e/L/3005-L.jpg[/img]
+
+This converts signal from 3.3V to 5V and back again. It sits between the Adafruit controller and Trackpoint module, and later the RGB LED strip bus.
+
+The Adafruit LED backlight module is also now connected to 3.3V.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-j4nxnK4/0/fd372085/L/3006-L.jpg[/img]
+
+The Sparkfun step-up breakout board, now connected to 3.3V input, and outputs 5V.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-B7qsqj8/0/535d47da/L/3007-L.jpg[/img]
+
+Messy stuff.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-Zkp5NCm/0/a3669936/L/3008-L.jpg[/img]
+
+Diodes for matrix. I curled up the ends so they would connect better with magnet wires. Solder seems to prefer sticking to diode pins compared to magnet wire by far.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-x2DST3Z/0/73b39e92/L/3009-L.jpg[/img]
+
+These diodes are there to connect Trackpoint buttons and make the buttons available to the matrix. Diodes are required because the buttons are also connected to the Trackpoint module (they also need another set of diodes there).
+
+This is useful for faux clicky, and to make middle button act as a layer switcher, which is realistic considering the usage pattern of the Trackpoint middle button.
+
+One diode is connected to the wrong pin, it should have been pin 6, not 5.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-f7jr3Qs/0/2a4a828f/L/3010-L.jpg[/img]
+
+Physically, the keyboard has 12×4 matrix. But I'm arranging the keyboard to use 6x8 matrix logically in order to conserve precious pins. The 8 rows are connected to HC138.
+
+In order to conserve vertical space, diodes and wires are routed around empty space between switches.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-dwRk6MM/0/5c69bc37/L/3011-L.jpg[/img]
+
+Wiring the 3 pins from HC138 to the controller.
+[/spoiler]
+
+Part 4
+
+[spoiler]
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-ft7fGgg/0/87ee6561/L/2001-L.jpg[/img]
+
+The middle plate and a bunch of SK6812 mini RGB LED strip attached to it. Holes are there to allow Cherry switches to protrude, so we can have LEDs sit nearer to the switch and reduce overall height.
+
+Some of you might notice that I have the switches put sideways. I arranged it that way so I don't have to connect more than 50 sets of pads. Now I can simply cut those in fours, and connect only about 15 of them. In other words I'm trading correct orientation of switches for my sanity.
+
+These LED strips are of 60 LEDs/m variety. They don't align perfectly with switches, but I don't mind. I wish they would make LED strips with the same spacing as keyboard keys.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-hc3GqP6/0/a57be4f4/L/2002-L.jpg[/img]
+
+WS2812 breakout board for indicator LEDs. WS2812s and SK6812minis are electrically compatible, so I can wire them  in the same bus. Both GNDs seem to be already connected internally, so I don't have to make connection to one of it.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-q5MsH2Z/0/35a1ace9/L/2003-L.jpg[/img]
+
+WS2812 boards are attached to the middle plate using 3M foam double tape.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-HwnqWbL/0/37a924fb/L/2005-L.jpg[/img]
+
+Connecting RGB LED strip pads using magnet wire is a delicate business. They are only about 3mm wide. It took me maybe up to 30 minutes to connect a set of them.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-X6mbsHS/0/1a8d4aa3/L/3016-L.jpg[/img]
+
+WS2812 RGB LED strip breakout board, and a light cover to prevent light bleed to adjacent indicators. It is laser cut from a sheet of acrylic.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-CX3htrR/0/2a218f82/L/2007-L.jpg[/img]
+
+Testing RGB light strip using a Teensy and demo apps from the light_ws2812 library.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-xZTMh6L/0/004bd0ec/L/NG2A5917-L.jpg[/img]
+
+Indicator lights need some diffusion. Without diffusion they won't look as good.
+
+Diffuser here is Rosco #3026. But diffuser can be easily obtained from everyday objects, like some plastic bag.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-LMfZV2R/0/871bda13/L/3018-L.jpg[/img]
+
+Light strip connection are complete. I keep the wires in place by paper adhesives.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-K223Csm/0/197f6704/L/3019-L.jpg[/img]
+
+I connected both ends of the RGB LED bus to Vcc and GND. So there are 2 lines of Vcc, 2 GNDs and 1 data, all routed to the bottom of the plate where they are connected to header pin receptacles.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-xDwC9T9/0/068f97a2/L/3014-L.jpg[/img]
+
+This is the bottom view of the middle plate. There is piezo buzzer connected to header receptacles. The other 3 are connections from the RGB LED strip bus.
+[/spoiler]
+
+Part 5
+
+[spoiler]
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-NWjzVQT/0/ad284dd0/L/3015-L.jpg[/img]
+
+I have a much bigger piezo buzzer on the other side. I plan only to use one of them, but need to hear which one sounds better.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-Jdh34dt/0/fe51e167/L/3017-L.jpg[/img]
+
+Cables with male headers are used to connect components on switch plate and to those attached to middle plate. These cables are relatively huge, but I found magnet wires too fragile for this purpose. I need something that will last  more than a few times of connection-disconnection routine.
+
+These three cable are used to connect to the RGB LED strip. Later, I will add another pair for the piezo buzzer.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-gfcjqHK/0/24583543/L/3020-L.jpg[/img]
+
+The black square thingy is the battery. It needs to be less than 3mm thick.
+
+This turned out to be far more cramped than what I planned before. So I dremeled out some of the material from the bottom acrylic plate.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-Rf8bbTK/0/b1297f1a/L/3021-L.jpg[/img]
+
+And the other side.
+
+I have to redo the cable routing all over again if I have to reach the main chamber. And I did that OFTEN during development.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-RnQgxSQ/0/f58cdb80/L/NG2A5985-L.jpg[/img]
+
+Bottom of the keyboard after assembly.
+
+The four opposing holes are intended for 3rd party feet.  So we got options for flat, positive inclination, negative inclination, or raised.
+
+Top middle hole is the reset button hole.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-FmZfpJt/0/24b50252/L/NG2A5988-L.jpg[/img]
+
+Countersunk bolt in matching silver color next to a polyurethane feet.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-3Nb6rQH/0/3afe12a0/L/NG2A5901-L.jpg[/img]
+
+Using black bolts on the darker colored faceplate.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-zZsWKj2/1/009f3c87/L/3022-L.jpg[/img]
+
+This is an attachment point for palm rest, or at least it will be.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-TtVCCMX/0/4642cf2f/L/NG2A5878-L.jpg[/img]
+
+Notice the slot at the bottom of the case? That will be another palm rest attachment point. But that will have to come much later.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-LJhTJMt/0/dada23d3/L/3012-L.jpg[/img]
+
+I'm using Suka's 3D printed Trackpoint extension. They are designed for older version of Trackpoint, and I prefer a newer version with metal plate, so I glued them together using cyanoacrylate glue. The top of the extension, though, is a perfect fit for Trackpoint cap.
+
+Suka's extension comes with several different length of extension. Here I have the tallest keycap (SA), and the shortest (DSA) to see which Trackpoint height I prefer for both. Because the Trackpoint extension is glued, I don't have the option to change them afterwards.
+[/spoiler]
+
+Part 6
+
+[spoiler]
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-8ZG2vtt/0/91646fa2/L/NG2A5907-L.jpg[/img]
+
+Trackpoint with cat's tongue cap.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-qz3HqcS/0/3f5d231a/L/NG2A5869-L.jpg[/img]
+
+Indicator LEDs. From left to right: battery level, capslock, GUI layer, function layer, number layer, punctuation layer, emoji layer, greek layer.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-b33jrfP/0/3da48081/L/NG2A5867-L.jpg[/img]
+
+And the other side. From left to right: Linux/Apple/Windows Unicode input method, QWERTY or alternative layout, faux clicky, Bluetooth, USB.
+
+Legends are a little off here, probably caused by some problems with laser cutting.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-2GSLmCs/0/7fdab89f/L/3023-L.jpg[/img]
+
+All indicator lights are on.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-H3TTT6Z/0/f5707abf/L/NG2A5889-L.jpg[/img]
+
+MicroUSB port from the controller. It is flush with the case, so any cable is compatible. The upper plate should not have the notch, but that will do for now.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-8f4Ddfj/0/e50efa88/L/NG2A5885-L.jpg[/img]
+
+Only 12.5mm from the bottom of the keyboard to switch plate. To put it into perspective:
+
+- Whitefox: 12mm
+- TEX aluminum case + Sentraq S60X plate: about 12.5mm
+- Planck: 13mm
+
+I can squeeze about 1mm of height if I use thinner aluminum for middle and bottom plates. But getting plates in two different thickness for small scale projects is not economical, at least from my perspective. Using thinner plates could mean some countersinking will need to extend to the acrylic parts.
+
+It is probably possible to squeeze 0.5mm from the upper chamber if I can find acrylic sheets in 4.5mm thickness. If going that route, then it will be necessary to replace the 5mm M2 hex spacers with 4mm ones.
+
+If a thinner battery is available, then it should be possible to reduce bottom chamber to match the thickness of the battery.
+
+If thinness is paramount, then it is possible to forego battery and piezo buzzer; remove bottom chamber and make the middle plate the bottom plate. I can get 8mm bottom to switch plate thickness. And this is still not including the optimizations above. It may be necessary to remove the protruding JST-PH battery connector from the Adafruit controller, but if rubber feet are being used and they are in adequate height, then it might not be required.
+
+The faceplate is 3mm in height, but it doesn't add to overall height (it sits on the switch plate). So, it is not critical to optimize thickness here, but thinner acrylic mirrors are available, though choices of colors are far more limited.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-9B5PHTB/0/822ac7cf/L/3024-L.jpg[/img]
+
+Keyset requirement is exactly the same as Planck, plus 3 1U keycaps for Trackpoint buttons.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-s4qm3wJ/0/05717563/L/3025-L.jpg[/img]
+
+There's an RGB LED under each switch, inclucing Trackpoint buttons. Switch LEDs and indicator LEDs are connected in a single WS2812/SK6812 bus.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-LkCpz9j/0/7942460a/L/NG2A6001-L.jpg[/img]
+
+Appearance can be easily customized by changing faceplate. This one is dressed with GMK Carbon keyset together with a matching faceplate.
+
+[img]https://photos.smugmug.com/Mechanical-Keyboard/Promethium-Keyboard/n-FDnPVn/Build-Log/i-RHkKsqr/0/a158b913/L/NG2A5877-L.jpg[/img]
+
+Thanks for reading!
+[/spoiler]
